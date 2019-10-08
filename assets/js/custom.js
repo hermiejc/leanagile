@@ -244,7 +244,7 @@ jQuery(document).ready(function ($) {
 		$( this ).click();
 	} );
 
-
+	// Added functions to convert the value into proper date
 	function convert_to_days(date_range)
 	{
 		var dates 	= date_range.split("-");
