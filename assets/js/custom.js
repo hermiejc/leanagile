@@ -148,7 +148,7 @@ jQuery(document).ready(function ($) {
                         // if checked, then display row and increment active_rows count
                         if ($(this).prop('checked')) {
                             datetimes.push('ee-ticket-datetimes-' + $(this).val());
-                            $(this).find('.datetime-selector-option-text-spn').html(convert_to_days($(this).val()) + ' Days');
+                            $(this).find('.datetime-selector-option-text-spn').html(convert_to_days($(this).val()));
                         }
                     });
                 }
@@ -251,7 +251,12 @@ jQuery(document).ready(function ($) {
 		var end 	= date_clean_format(dates[1]);
 		begin 		= new Date(begin);
 		end 		= new Date(end);
-		return Math.floor((Date.UTC(end.getFullYear(), end.getMonth(), end.getDate()) - Date.UTC(begin.getFullYear(), begin.getMonth(), begin.getDate()) ) /(1000 * 60 * 60 * 24));
+		var output 	= '';
+		var numdays	= Math.floor((Date.UTC(end.getFullYear(), end.getMonth(), end.getDate()) - Date.UTC(begin.getFullYear(), begin.getMonth(), begin.getDate()) ) /(1000 * 60 * 60 * 24));
+		if(numdays > 0){
+			output = numdays + " Day Courses";
+		}
+		return output;
 	}
 
 	function date_clean_format(date_raw){
