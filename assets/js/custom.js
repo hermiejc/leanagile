@@ -253,7 +253,7 @@ jQuery(document).ready(function ($) {
 		begin 		= new Date(begin);
 		end 		= new Date(end);
 		var output 	= '';
-		var numdays	= Math.floor((Date.UTC(end.getFullYear(), end.getMonth(), end.getDate()) - Date.UTC(begin.getFullYear(), begin.getMonth(), begin.getDate()) ) /(1000 * 60 * 60 * 24));
+		var numdays	= Math.floor((Date.UTC(end.getFullYear(), end.getMonth(), end.getDate()) - Date.UTC(begin.getFullYear(), begin.getMonth(), begin.getDate()) ) /(1000 * 60 * 60 * 24)) + 1;
 		if(numdays > 0){
 			output = numdays + " Day Courses";
 		}
