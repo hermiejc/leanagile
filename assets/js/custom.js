@@ -246,15 +246,15 @@ jQuery(document).ready(function ($) {
 
 	function convert_to_days(date_range)
 	{
-		var dates = date_range.split("-");
-		var begin = date_format(dates[0]);
-		var end = date_format(dates[1]);
-		begin = new Date(begin);
-		end = new Date(end);
+		var dates 	= date_range.split("-");
+		var begin 	= date_clean_format(dates[0]);
+		var end 	= date_clean_format(dates[1]);
+		begin 		= new Date(begin);
+		end 		= new Date(end);
 		return Math.floor((Date.UTC(end.getFullYear(), end.getMonth(), end.getDate()) - Date.UTC(begin.getFullYear(), begin.getMonth(), begin.getDate()) ) /(1000 * 60 * 60 * 24));
 	}
 
-	function date_format(date_raw){
+	function date_clean_format(date_raw){
 		var date = date_raw.split("_");		
 		return date[1] + '/' date[2] + '/' date[0];
 	}
