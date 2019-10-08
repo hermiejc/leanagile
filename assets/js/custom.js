@@ -145,10 +145,11 @@ jQuery(document).ready(function ($) {
                 if (object_exists($datetime_options, '$datetime_options')) {
                     // add each datetime options to our array of datetimes
                     $.each($datetime_options, function (index) {
+                    	// Changing the label for the selection options
+                    	$(this).find('.datetime-selector-option-text-spn').html(convert_to_days($(this).val()));
                         // if checked, then display row and increment active_rows count
                         if ($(this).prop('checked')) {
-                            datetimes.push('ee-ticket-datetimes-' + $(this).val());
-                            $(this).find('.datetime-selector-option-text-spn').html(convert_to_days($(this).val()));
+                            datetimes.push('ee-ticket-datetimes-' + $(this).val());                            
                         }
                     });
                 }
@@ -261,7 +262,7 @@ jQuery(document).ready(function ($) {
 
 	function date_clean_format(date_raw){
 		var date = date_raw.split("_");		
-		return date[1] + '/' date[2] + '/' date[0];
+		return date[1] + '/' + date[2] + '/' + date[0];
 	}
 
 
